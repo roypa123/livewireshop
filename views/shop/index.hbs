@@ -1,0 +1,85 @@
+<style>
+  
+   
+    .mo .moo{
+         text-align: center;
+         padding:0.2em;
+         margin:0.2em;
+         font-size: 1.5em;
+         font-weight: bolder;
+    }
+
+     .mo .sign3{
+       padding: 0.5em;
+       margin:0.2em;
+       background: #30e910bb;  /* fallback for old browsers */
+       color: white;
+       border-radius: 0.2em;
+    }
+
+    .mo .m1{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding:0.1em;
+      margin:0.1em;
+      justify-content: space-evenly;
+    }
+
+    .mo .m1 .m2{
+      border:1px solid rgb(75, 74, 74);
+      border-radius: 0.7em;
+      padding:0.5em;
+      margin-top:1em;
+      margin-bottom: 1em;
+      margin-left:1em;
+      margin-right:1em;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-evenly;
+      width:25%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .mo .m1{
+        flex-direction: column;
+      }
+
+      .mo .m1 .m2{
+        width:84%;
+      }
+    } 
+
+        
+</style>
+<div class="mo">
+
+
+   <img width="100%" height="auto" style="border-radius: 0.2em;" src="https://social.bigbazaar.com/images/home_banner.jpg?version=2.2.15&subv=1.8"
+    alt="">
+   <p class="moo">FRUITS</p>
+   <br>
+
+  
+    <div id="success" class="sign3" {{#if noMessages}}hidden{{/if}}>
+        {{ successMsg }}
+    </div>
+  
+    
+    <div class="m1">
+        {{# each products }}
+        <div class="m2">
+            <img style="width:55%;height:55%;align-items:center" src="{{this.imagePath}}">
+            <p style="font-weight: bolder;padding:0.2em;text-align:left">{{this.title}}</p>
+            <p style="padding:0.2em">{{this.description}}</p>
+            <p style="padding:0.2em">Rs &nbsp;{{this.price }}</p>
+            <a style="background-color:rgb(25, 25, 236);color:white;padding:0.3em;border-radius:0.2em;text-decoration:none"href="/add-to-cart/{{this._id}}" class="btn btn-primary">Add to cart</a>
+        </div>
+        {{/each}}
+   </div>
+
+</div>
+

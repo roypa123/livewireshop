@@ -1,0 +1,119 @@
+<style>
+
+.nav{
+   display:flex ;
+   flex-direction: row;
+   flex-wrap: wrap;
+   background: #f898c3; 
+   border-radius: 0.2em;
+   padding:0.5em;  
+  
+ }
+
+.nav .head{
+  display:flex ;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-decoration: none;
+  color:crimson;
+  font-weight:900;
+  padding:0.2em;
+  margin-right:50em;
+ }
+
+ .nav .head1{
+  display:flex ;
+  flex-direction: row;
+  text-decoration: none;
+  color:black;
+  font-weight:300;
+  padding:0.1em;
+  margin:0.2em;
+  
+ }
+
+.nav .dropdown {
+
+  position: relative;
+  display: inline-block;
+}
+.nav .dropdown .dropbtn {
+  
+  background-color: #f898c3;
+  color: black;
+  font-size: 1em;
+  font-weight:300;
+  padding:0.2em;
+  margin:0.2em;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.3em; 
+}
+
+.nav .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.nav .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.nav .dropdown-content a:hover {background-color: #f1f1f1}
+
+.nav .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.nav .dropdown:hover .dropbtn {
+  background-color: #f898c3;
+}
+
+@media screen and (max-width: 360px) {
+  .nav{
+     flex-direction: column;
+  }
+  .nav .head{
+    width:100%;
+    margin-right: 0;
+  }
+}
+
+</style>
+
+<div class="nav">
+
+  <a class="head" href="/">Livewire Shopping</a>
+
+  <a class="head1" href="/shopping-cart/">
+  <span class="material-icons">shopping_cart</span>
+  Shopping cart
+  {{# if session.cart.totalQty}}
+  <span style="color:white;font-weight:bolder;width:25px;height:25px;background-color: rgb(49, 172, 49);border-radius:4.5em;margin-left:0.3em;text-align:center;" >
+  {{session.cart.totalQty}}
+  </span>
+  {{/if}}
+  </a>
+
+
+  <div class="dropdown">
+    <a type="button" class="dropbtn"><span class="material-icons">account_circle</span>User management</a>
+     <div class="dropdown-content">
+       {{# if login }}
+          <a  href="/user/profile">Users Account</a>
+          <a  href="/user/logout">Logout</a>
+         {{ else }}
+          <a  href="/user/signup">Sign up</a>
+          <a  href="/user/signin">Sign in</a>
+         {{/if}}
+     </div>
+  </div>
+
+</div>

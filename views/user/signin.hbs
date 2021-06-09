@@ -1,0 +1,91 @@
+<style>
+    .sign1{
+       display:flex ;
+       flex-direction: column;
+       text-align: center;
+       align-items: center;
+    }
+    .sign1 .sign2{
+       color:#414345;
+       margin:0.1em;
+       font-size: 2em;
+       font-weight: bolder;
+    }
+
+    .sign1 .sign3{
+       padding: 0.5em;
+       margin:0.2em;
+       background: #ed2139d7;  /* fallback for old browsers */
+       color: white;
+       border-radius: 0.2em;
+    }
+
+    .sign1 .sign4 .form-group{
+        padding:0.1em;
+        margin:0.1em;
+        text-align: left;
+    }
+
+     .sign1 .sign4 .form-group{
+       padding:0.2em;
+       margin:0.2em;
+       font-size: 1.2em;
+    }
+
+    .sign1 .sign4 .form-group .form-control{
+      
+      padding:0.2em;
+      font-size: 1em;
+    }
+
+    .sign1 .sign4 .button {
+      color: white;
+      background: #4C8FFB;
+      border: 1px #3079ED solid;
+      box-shadow: inset 0 1px 0 #80B0FB;
+      padding-top:0.6em;
+      padding-bottom:0.6em;
+      padding-left:1.2em ;
+      padding-right:1.2em ;
+      margin:0.2em;
+      border-radius:0.2em;
+      font-size:0.9em;
+    }
+
+    .sign1 .sign4 .button:hover {
+      border: 1px #2F5BB7 solid;
+      box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
+      background: #3F83F1;
+    }
+  
+    .sign1 .hr{
+      text-decoration: none;
+      color:rgb(34, 2, 138)
+    }
+</style>
+        
+<div class="sign1">
+             <p><i class="material-icons" style="margin-top:0.3em;color:#414345;font-size:5em;">person</i></p>
+            <p class="sign2">Please sign In<p>
+            {{#if hasErrors}}
+            <div class="sign3">
+               {{# each messages }}
+                    <p>{{this}}</p>
+               {{/each}}
+            </div>
+            {{/if}}
+
+            <form class="sign4" action="/user/signin" method="POST">
+                <div class="form-group">
+                    <input type="text" name="email" id="email" class="form-control" placeholder="Email address">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                </div>
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <button class="button" type="submit">Sign In</button>
+            </form>
+            <br>
+            <p>Don't have an account? <a  class="hr" href="/user/signup">Sign up instead!</a></p>
+
+</div>

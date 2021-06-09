@@ -1,0 +1,44 @@
+<style>
+    .profile{
+        padding:0.2em;
+        margin:0.2em;
+    }
+
+    .profile .profile1{
+        border:1px solid rgb(105, 104, 104);
+        padding:1em;
+        margin:0.6em;
+        border-radius: 0.2em;
+    }
+</style>
+
+<div class="profile">
+        <p style="text-align: center;padding:0.1em;margin:0.1em;"><strong>My Orders</strong></p>
+    
+        {{# each orders }}
+        <div class="profile1">
+           <p><strong>Order Details</strong></p>
+           <br>
+            {{# each this.items }}
+                  <div>
+                     <table>
+                         <tr>
+                             <td><img style="width:80px;height:80px" src="{{this.item.imagePath}}" alt=""> </td>
+                             <td><p>Product Name:{{this.item.title}}</p>         
+                                 <p>Quantity: {{this.qty}} Units </p>
+                                 <p>Price:Rs {{this.price}}</p></td>
+                         </tr>
+                     </table>   
+                  </div>                
+            {{/each}}         
+           <p><strong>Total Price: Rs {{this.cart.totalPrice}}</strong></p> 
+           <br>
+           <hr>
+           <br>
+           <p><strong>Shipping Details</strong></p>
+           <br>
+           <p>Customer Name: {{this.name}}</p>
+           <p>Shipping Address: {{this.address}}</p>
+         </div>
+        {{/each}}
+</div>

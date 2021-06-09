@@ -1,0 +1,121 @@
+<style>
+
+.cart{
+        padding:0.1em;
+        margin:0.1em;       
+}
+
+.cart .cart1{
+        padding:0.1em;
+        margin:0.1em;
+}
+
+.cart .cart1 div table tr td .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.cart .cart1 div table tr td .dropdown .dropbtn {
+  
+  background-color: #413f3f;
+  color:white;
+  font-size: 1em;
+  font-weight:300;
+  padding:0.6em;
+  margin:0.6em;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.3em; 
+}
+
+.cart .cart1 div table tr td .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.cart .cart1 div table tr td .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.cart .cart1 div table tr td .dropdown-content a:hover {background-color: #f1f1f1}
+
+.cart .cart1 div table tr td .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.cart .cart1 div table tr td .dropdown:hover .dropbtn {
+  background-color: #1d1c1c;
+}
+
+
+.cart .button {
+      color: white;
+      background: #4C8FFB;
+      border: 1px #3079ED solid;
+      box-shadow: inset 0 1px 0 #80B0FB;
+      padding-top:0.6em;
+      padding-bottom:0.6em;
+      padding-left:1.2em ;
+      padding-right:1.2em ;
+      margin:0.2em;
+      border-radius:0.2em;
+      font-size:0.9em;
+      text-decoration: none;
+}
+
+.cart .button:hover {
+      border: 1px #2F5BB7 solid;
+      box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
+      background: #3F83F1;
+}
+
+</style>
+
+
+ <p style="text-align: center;font-size:1.5em;font-weight:bolder;margin:0.4em;">Your Cart</p>
+
+ <div class="cart">
+    {{# if products}} 
+
+    <div class="cart1">
+            {{# each products }}
+                  <div>
+                     <table>
+                         <tr>
+                             <td><img style="width:80px;height:80px" src="{{this.item.imagePath}}" alt=""> </td>
+                             <td><p>Product Name:{{this.item.title}}</p>         
+                                 <p>Quantity: {{this.qty}} Units </p>
+                                 <p>Price:Rs {{this.price}}</p></td>
+                             <td>
+                                 <div class="dropdown">
+                                    <a type="button" class="dropbtn">Action</a>
+                                     <div class="dropdown-content">
+                                          <a href="/reduce/{{this.item._id}}">Reduce by 1</a>
+                                          <a href="/remove/{{this.item._id}}">Remove All</a>
+                                     </div>
+                                </div>
+                             </td>
+                         </tr>
+                     </table>   
+                  </div>
+             {{/each}}
+     
+   </div>
+
+   <p style="margin:1em;font-size:1.2em;"><strong>Total:{{ totalPrice }}</strong></p>   
+ 
+   <a href="/checkout" type="button" class="button">Check out</a>
+
+   {{ else }}
+   <p style=" padding: 0.5em;margin:0.2em; background: #ed2139d7;  color: white;border-radius: 0.2em;">No items in Cart</p>
+ 
+   {{/if}}
+
+</div>
