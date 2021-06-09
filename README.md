@@ -1,13 +1,15 @@
-# livewireshop
-Livewire shopping
 
+# Livewire shopping
 
-A model of food shopping cart
+## A model of food shopping cart
 
+Deployed on Heroku
 
-Programs used:
--HTML
--CSS
--JAVASCRIPT
--Node.js
--MongoBb
+[Go to the website ] {https://livewireshopping.herokuapp.com/}
+
+### Programs used:
+- HTML
+- CSS
+- JAVASCRIPT
+- Node.js
+- MongoDb
