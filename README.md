@@ -5,7 +5,7 @@
 
 Deployed on Heroku
 
-[Go to the website ] (https://livewireshopping.herokuapp.com/)
+[Go to the website ](https://livewireshopping.herokuapp.com)
 
 ### Programs used:
 - HTML
